@@ -15,6 +15,9 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -29,9 +32,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ListView news_list = findViewById(R.id.news_list);
-                String news[] = {"Premier titre","Deuxieme","Troisieme"};
 
-                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                List<RssItem> news = new ArrayList<RssItem>();
+                news.add(new RssItem("Premier titre"));
+                news.add(new RssItem("Second titre"));
+                news.add(new RssItem("Troisème titre"));
+
+
+                ArrayAdapter<RssItem> arrayAdapter = new ArrayAdapter<RssItem>(
                         getApplicationContext(),
                         android.R.layout.simple_list_item_1,
                         android.R.id.text1,
