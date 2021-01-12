@@ -31,13 +31,15 @@ public class MainActivity extends AppCompatActivity {
                 ListView news_list = findViewById(R.id.news_list);
                 String news[] = {"Premier titre","Deuxieme","Troisieme"};
 
-                ArrayAdapter<String> arrayAdaptater = new ArrayAdapter<String>(
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                         getApplicationContext(),
                         android.R.layout.simple_list_item_1,
                         android.R.id.text1,
-                        news)   ;
+                        news);
+
+                news_list.setAdapter(arrayAdapter);
                 Snackbar.make(view, "Loading news...", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                        .show();
             }
         });
 
