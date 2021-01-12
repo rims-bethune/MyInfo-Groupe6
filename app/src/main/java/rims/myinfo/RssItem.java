@@ -15,6 +15,8 @@ public class RssItem {
     public RssItem(String title) {
         this.title = title;
     }
+    public RssItem() {
+    }
     @Override
     public String toString(){
         return this.title;
