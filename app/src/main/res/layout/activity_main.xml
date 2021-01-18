@@ -14,15 +14,14 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:backgroundTint="@color/colorPrimary"
             app:popupTheme="@style/Theme.MyInfo.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include
-        layout="@layout/content_main"
-        android:background="#FFFFFF"
-        android:backgroundTint="#FFFFFF" />
+    <include layout="@layout/content_main" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/load_btn"
@@ -30,7 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:backgroundTint="#FF0000"
+        android:background="#E4D8D8"
+        app:backgroundTint="@color/btnLoad"
         app:srcCompat="@android:drawable/stat_notify_sync" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
