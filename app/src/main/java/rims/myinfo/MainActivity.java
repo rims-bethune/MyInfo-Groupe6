@@ -1,5 +1,6 @@
 package rims.myinfo;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -7,6 +8,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.preference.PreferenceManager;
 
 import android.util.Xml;
 import android.view.View;
@@ -62,8 +64,17 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent settingsIntent =  new Intent(this,SettingsActivity.class);
+            startActivity(settingsIntent);
             return true;
         }
+        if (id == R.id.action_about) {
+            Intent aboutIntent =  new Intent(this,AboutActivity.class);
+            startActivity(aboutIntent);
+            return true;
+
+        }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -75,7 +86,8 @@ public class MainActivity extends AppCompatActivity {
 
             List<RssItem> news = new ArrayList<RssItem>();
 
-            String url = "https://www.lemonde.fr/rss/une.xml";
+            String url = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
+            .getString("url","https://www.lemonde.fr/rss/une.xml");
             try {
                 InputStream stream = new URL(url).openConnection().getInputStream();
                 // parsing stream
