@@ -1,6 +1,7 @@
 package rims.myinfo;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -15,11 +16,14 @@ import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
@@ -34,16 +38,16 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.load_btn);
-        fab.setOnClickListener(new View.OnClickListener() {
+       ListView news_list = findViewById(R.id.news_list);
+        news_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Loading news...", Snackbar.LENGTH_LONG)
-                        .show();
-                Downloader downloader = new Downloader();
-                downloader.start();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                RssItem rssItem = (RssItem) parent.getItemAtPosition(position);
+                Intent intent= new Intent(Intent.ACTION_VIEW, Uri.parse(rssItem.link));
+                startActivity(intent);
             }
         });
+
 
 
     }
@@ -54,7 +58,14 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+    public void scan (View view){
 
+
+    }
+public void refresh (View view){
+       Snackbar.make(view, "Loading news...", Snackbar.LENGTH_LONG).show();
+    (new Downloader()).start();
+}
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -82,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
     class Downloader extends Thread{
         @Override
         public void run(){
-            ListView news_list = findViewById(R.id.news_list);
+
 
             List<RssItem> news = new ArrayList<RssItem>();
 
@@ -129,18 +140,17 @@ public class MainActivity extends AppCompatActivity {
                     eventType = parser.next();
                 }
 
-            } catch (Exception e) {
+            } catch (IOException | XmlPullParserException e) {
                 e.printStackTrace();
             }
 
 
-            ArrayAdapter<RssItem> arrayAdapter = new ArrayAdapter<RssItem>(
+            ListView news_list = findViewById(R.id.news_list);
+            RssItemArrayAdapter adapter = new RssItemArrayAdapter(
                     getApplicationContext(),
-                    android.R.layout.simple_list_item_1,
-                    android.R.id.text1,
                     news);
 
-            news_list.post( () ->news_list.setAdapter(arrayAdapter) );
+            news_list.post( () ->news_list.setAdapter(adapter) );
         }
     }
 }

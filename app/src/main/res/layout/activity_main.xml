@@ -30,7 +30,20 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:background="#E4D8D8"
+        android:onClick="refresh"
         app:backgroundTint="@color/btnLoad"
         app:srcCompat="@android:drawable/stat_notify_sync" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/qr_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="7pt"
+        android:layout_marginBottom="49pt"
+        android:background="#E4D8D8"
+        android:onClick="scan"
+        app:backgroundTint="@color/btnLoad"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
