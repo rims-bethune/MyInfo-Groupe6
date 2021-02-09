@@ -6,6 +6,8 @@ import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -58,13 +60,32 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-    public void scan (View view){
 
 
-    }
 public void refresh (View view){
        Snackbar.make(view, "Loading news...", Snackbar.LENGTH_LONG).show();
     (new Downloader()).start();
+}
+    public void scan (View view){
+        IntentIntegrator intentIntegrator = new IntentIntegrator(this);
+        intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE);
+        intentIntegrator.setBarcodeImageEnabled(true);
+        intentIntegrator.initiateScan();
+    }
+
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+    if (result != null) {
+        if (result.getContents() == null) {
+
+        } else {
+            String url = result.getContents();
+            // a faire
+        }
+    } else {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
