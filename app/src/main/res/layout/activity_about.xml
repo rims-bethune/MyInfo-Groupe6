@@ -4,4 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AboutActivity"/>
+    tools:context=".AboutActivity">
+
+    <LinearLayout
+        android:layout_width="406dp"
+        android:layout_height="48dp"
+        android:background="#6AFFFFFF"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="66dp">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="577dp"
+            android:background="#FFFFFF"
+            android:text="MyInfo"
+            android:textAlignment="center"
+            android:textSize="36sp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="414dp"
+        android:layout_height="48dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="-3dp"
+        tools:layout_editor_absoluteY="683dp">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="414dp"
+            android:layout_height="117dp"
+            android:background="#00FFFFFF"
+            android:text="Dévéloppé par Jérémie TALLEUX,Maciré BERETE et Victor DUSKE"
+            android:textAlignment="center"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="419dp"
+        android:layout_height="333dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="131dp">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Application pour l'IUT de Béthune , LICENCE PRO RIMS "
+            android:textSize="24sp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

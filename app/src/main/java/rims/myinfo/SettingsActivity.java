@@ -1,9 +1,12 @@
 package rims.myinfo;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
+import android.webkit.URLUtil;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 
@@ -33,29 +36,23 @@ public class SettingsActivity extends AppCompatActivity {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey);
+            findPreference("url").setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                if(URLUtil.isValidUrl((String) newValue)){
+                    return true;
+                }else{
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                     builder.setTitle("Invalide");
+                     builder.setMessage("Il y a une erreur");
+                     builder.setPositiveButton(android.R.string.ok, null);
+                     builder.show();
+                     return false;
+                }
+                }
+            });
         }
     }
-    // verif
-    // public static class TesterConnexionHTTP {
 
-    // public static void main(String[] args) {
 
-    //  try {
-    //    String url = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
-    //    .getString("url","https://www.lemonde.fr/rss/une.xml");
-    //    HttpURLConnection connexion = (HttpURLConnection)uneURL.openConnection();
-    //       InputStream flux = connexion.getInputStream();
-    //     System.out.println("Status de la connexion : " + connexion.getResponseMessage());
-    //     int ch;
-    //    if (connexion.getResponseCode() == HttpURLConnection.HTTP_OK)
-    //        while ((ch=flux.read())!= -1)
-    //        System.out.print((char) ch);
-    //   flux.close();
-    //      connexion.disconnect();
-    //     }
-    //    catch(Exception e) {
-    //         System.out.println(e);
-    //     }
-    //     }
-    //   }
 }
