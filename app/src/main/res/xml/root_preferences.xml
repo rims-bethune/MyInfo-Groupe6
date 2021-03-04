@@ -1,5 +1,9 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#E80909"
+    android:backgroundTint="#FF0000"
+    android:layout="?android:attr/textEditPasteWindowLayout">
+
 
     <PreferenceCategory app:title="@string/settings_header">
 
@@ -10,13 +14,5 @@
             app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
 
-
-    <PreferenceCategory app:title="@string/sync_header">
-
-        <SwitchPreferenceCompat
-            app:key="sync"
-            app:title="@string/sync_title" />
-
-    </PreferenceCategory>
 
 </PreferenceScreen>

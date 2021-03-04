@@ -4,7 +4,7 @@
         <!-- Primary brand color. -->
         <item name="primaryColor">@color/colorPrimary</item>
         <item name="primaryContentColor">@color/background_light</item>
-        <item name="primaryBtnColor">@color/btnLoad</item>
+        <item name="primaryBtnColor">@color/background_light</item>
         <item name="primaryDarkColor">@color/colorPrimaryDark</item>
         <!-- Secondary brand color. -->
 

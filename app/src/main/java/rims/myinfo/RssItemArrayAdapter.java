@@ -33,6 +33,7 @@ public class RssItemArrayAdapter extends ArrayAdapter<RssItem> {
 
             holder.rsstitle = convertView.findViewById(R.id.title_TextView);
             holder.rsstext = convertView.findViewById(R.id.description_TextView);
+            holder.rssdate = convertView.findViewById(R.id.pubDate);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -41,11 +42,13 @@ public class RssItemArrayAdapter extends ArrayAdapter<RssItem> {
         RssItem item = this.news.get(position);
         holder.rsstitle.setText(item.title);
         holder.rsstext.setText(item.description);
+        holder.rssdate.setText(item.pubDate);
         return convertView;
     }
 
 
     static class ViewHolder {
+        TextView rssdate;
         TextView rsstitle;
         TextView rsstext;
     }

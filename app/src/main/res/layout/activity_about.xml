@@ -5,9 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
+    android:animateLayoutChanges="false"
     android:background="#FF5E50"
     tools:context=".AboutActivity">
-
+    <include layout="@layout/content_main" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +28,7 @@
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="#FFD5D1"
+            android:textColor="#0091EA"
             android:textColorHighlight="#000000"
             android:textColorHint="#000000"
             android:textColorLink="#000000"
@@ -46,7 +47,7 @@
 
             android:textAllCaps="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="#FFD5D1"
+            android:textColor="#0091EA"
             android:textColorHighlight="#000000"
             android:textColorHint="#000000"
             android:textColorLink="#000000"
@@ -65,7 +66,7 @@
 
             android:textAllCaps="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="#FFD5D1"
+            android:textColor="#0091EA"
             android:textColorHighlight="#000000"
             android:textColorHint="#000000"
             android:textColorLink="#000000"
@@ -79,7 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="203dp"
             android:layout_marginTop="20pt"
-            app:srcCompat="@mipmap/iconmyinfo_foreground" />
+            app:srcCompat="@drawable/universit__d_artois__logo__svg" />
 
         <TextView
             android:id="@+id/textView5"
@@ -91,7 +92,7 @@
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="#FFD5D1"
+            android:textColor="#0091EA"
             android:textColorHighlight="#000000"
             android:textColorHint="#000000"
             android:textColorLink="#000000"

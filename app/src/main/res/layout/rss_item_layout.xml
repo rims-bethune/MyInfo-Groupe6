@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -10,6 +12,7 @@
         android:layout_height="109dp"
 
         android:layout_marginTop="20pt"
+        android:fontFamily="@font/indie_flower"
         android:text="TextView" />
 
     <TextView
@@ -17,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="109dp"
         android:layout_marginTop="85pt"
+        android:fontFamily="@font/indie_flower"
         android:text="TextView" />
 
     <TextView
@@ -24,6 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5pt"
+        android:fontFamily="@font/margarine"
         android:text="Titre : "
         android:textStyle="bold" />
 
@@ -32,6 +37,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="70pt"
+        android:fontFamily="@font/margarine"
         android:text="Description : "
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140pt"
+        android:fontFamily="@font/margarine"
+        android:text="Date :"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/pubDate"
+        android:layout_width="100pt"
+        android:layout_height="20pt"
+        android:layout_marginTop="160pt"
+        android:fontFamily="@font/indie_flower"
+        android:text="TextView" />
+
 </RelativeLayout>
